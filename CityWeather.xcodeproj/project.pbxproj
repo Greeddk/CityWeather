@@ -18,6 +18,7 @@
 		42C0C04A2C29B198006FA989 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 42C0C0492C29B198006FA989 /* RxSwift */; };
 		42C0C04D2C29B1A9006FA989 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C0C04C2C29B1A9006FA989 /* Alamofire */; };
 		42C0C0502C29B1B5006FA989 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42C0C04F2C29B1B5006FA989 /* SnapKit */; };
+		42C0C0582C29B4D8006FA989 /* citylist.json in Resources */ = {isa = PBXBuildFile; fileRef = 42C0C0572C29B4D8006FA989 /* citylist.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		42C0C0302C299EEA006FA989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42C0C0322C299EEA006FA989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CityWeather/App/Info.plist; sourceTree = SOURCE_ROOT; };
 		42C0C0422C29AB56006FA989 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		42C0C0572C29B4D8006FA989 /* citylist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = citylist.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		42C0C03B2C29A961006FA989 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				42C0C0572C29B4D8006FA989 /* citylist.json */,
 				42C0C02D2C299EEA006FA989 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -205,6 +208,7 @@
 			files = (
 				42C0C02E2C299EEA006FA989 /* Assets.xcassets in Resources */,
 				42C0C0432C29AB56006FA989 /* .gitignore in Resources */,
+				42C0C0582C29B4D8006FA989 /* citylist.json in Resources */,
 				42C0C0312C299EEA006FA989 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
