@@ -19,6 +19,10 @@
 		42C0C04D2C29B1A9006FA989 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C0C04C2C29B1A9006FA989 /* Alamofire */; };
 		42C0C0502C29B1B5006FA989 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42C0C04F2C29B1B5006FA989 /* SnapKit */; };
 		42C0C0582C29B4D8006FA989 /* citylist.json in Resources */ = {isa = PBXBuildFile; fileRef = 42C0C0572C29B4D8006FA989 /* citylist.json */; };
+		42C0C05D2C29B686006FA989 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C05C2C29B686006FA989 /* APIKey.swift */; };
+		42C0C0602C29B82D006FA989 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C05F2C29B82D006FA989 /* Router.swift */; };
+		42C0C0622C29B9B6006FA989 /* CWRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C0612C29B9B6006FA989 /* CWRouter.swift */; };
+		42C0C0642C29BB9C006FA989 /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C0632C29BB9C006FA989 /* Parameters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		42C0C0322C299EEA006FA989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CityWeather/App/Info.plist; sourceTree = SOURCE_ROOT; };
 		42C0C0422C29AB56006FA989 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		42C0C0572C29B4D8006FA989 /* citylist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = citylist.json; sourceTree = "<group>"; };
+		42C0C05C2C29B686006FA989 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		42C0C05F2C29B82D006FA989 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		42C0C0612C29B9B6006FA989 /* CWRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWRouter.swift; sourceTree = "<group>"; };
+		42C0C0632C29BB9C006FA989 /* Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,7 @@
 		42C0C0392C29A94B006FA989 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				42C0C0592C29B666006FA989 /* Network */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -134,6 +143,41 @@
 			children = (
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		42C0C0592C29B666006FA989 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				42C0C05A2C29B66D006FA989 /* APIService */,
+				42C0C05B2C29B677006FA989 /* APISetting */,
+				42C0C05E2C29B822006FA989 /* Router */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		42C0C05A2C29B66D006FA989 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		42C0C05B2C29B677006FA989 /* APISetting */ = {
+			isa = PBXGroup;
+			children = (
+				42C0C05C2C29B686006FA989 /* APIKey.swift */,
+				42C0C0632C29BB9C006FA989 /* Parameters.swift */,
+			);
+			path = APISetting;
+			sourceTree = "<group>";
+		};
+		42C0C05E2C29B822006FA989 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				42C0C05F2C29B82D006FA989 /* Router.swift */,
+				42C0C0612C29B9B6006FA989 /* CWRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,8 +264,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42C0C0622C29B9B6006FA989 /* CWRouter.swift in Sources */,
+				42C0C0642C29BB9C006FA989 /* Parameters.swift in Sources */,
 				42C0C0292C299EE9006FA989 /* MainViewController.swift in Sources */,
 				42C0C0252C299EE9006FA989 /* AppDelegate.swift in Sources */,
+				42C0C0602C29B82D006FA989 /* Router.swift in Sources */,
+				42C0C05D2C29B686006FA989 /* APIKey.swift in Sources */,
 				42C0C0272C299EE9006FA989 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
