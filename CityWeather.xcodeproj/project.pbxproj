@@ -13,6 +13,11 @@
 		42C0C02E2C299EEA006FA989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42C0C02D2C299EEA006FA989 /* Assets.xcassets */; };
 		42C0C0312C299EEA006FA989 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 42C0C0302C299EEA006FA989 /* Base */; };
 		42C0C0432C29AB56006FA989 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 42C0C0422C29AB56006FA989 /* .gitignore */; };
+		42C0C0462C29B198006FA989 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 42C0C0452C29B198006FA989 /* RxCocoa */; };
+		42C0C0482C29B198006FA989 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 42C0C0472C29B198006FA989 /* RxRelay */; };
+		42C0C04A2C29B198006FA989 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 42C0C0492C29B198006FA989 /* RxSwift */; };
+		42C0C04D2C29B1A9006FA989 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C0C04C2C29B1A9006FA989 /* Alamofire */; };
+		42C0C0502C29B1B5006FA989 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42C0C04F2C29B1B5006FA989 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +36,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42C0C04A2C29B198006FA989 /* RxSwift in Frameworks */,
+				42C0C04D2C29B1A9006FA989 /* Alamofire in Frameworks */,
+				42C0C0482C29B198006FA989 /* RxRelay in Frameworks */,
+				42C0C0462C29B198006FA989 /* RxCocoa in Frameworks */,
+				42C0C0502C29B1B5006FA989 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +149,13 @@
 			dependencies = (
 			);
 			name = CityWeather;
+			packageProductDependencies = (
+				42C0C0452C29B198006FA989 /* RxCocoa */,
+				42C0C0472C29B198006FA989 /* RxRelay */,
+				42C0C0492C29B198006FA989 /* RxSwift */,
+				42C0C04C2C29B1A9006FA989 /* Alamofire */,
+				42C0C04F2C29B1B5006FA989 /* SnapKit */,
+			);
 			productName = CityWeather;
 			productReference = 42C0C0212C299EE9006FA989 /* CityWeather.app */;
 			productType = "com.apple.product-type.application";
@@ -167,6 +184,11 @@
 				Base,
 			);
 			mainGroup = 42C0C0182C299EE9006FA989;
+			packageReferences = (
+				42C0C0442C29B198006FA989 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				42C0C04B2C29B1A9006FA989 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				42C0C04E2C29B1B5006FA989 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 42C0C0222C299EE9006FA989 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -266,7 +288,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -323,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -419,6 +441,61 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		42C0C0442C29B198006FA989 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
+		42C0C04B2C29B1A9006FA989 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		42C0C04E2C29B1B5006FA989 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		42C0C0452C29B198006FA989 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42C0C0442C29B198006FA989 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		42C0C0472C29B198006FA989 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42C0C0442C29B198006FA989 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		42C0C0492C29B198006FA989 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42C0C0442C29B198006FA989 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		42C0C04C2C29B1A9006FA989 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42C0C04B2C29B1A9006FA989 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		42C0C04F2C29B1B5006FA989 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42C0C04E2C29B1B5006FA989 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 42C0C0192C299EE9006FA989 /* Project object */;
 }
