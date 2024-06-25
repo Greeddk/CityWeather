@@ -28,6 +28,10 @@
 		42C0C06B2C29C6AF006FA989 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C06A2C29C6AF006FA989 /* City.swift */; };
 		42C0C0712C29CA06006FA989 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C0702C29CA06006FA989 /* NetworkError.swift */; };
 		42C0C0732C29CE12006FA989 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C0722C29CE11006FA989 /* NetworkManager.swift */; };
+		42C0C0752C2A6BF0006FA989 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C0742C2A6BF0006FA989 /* BaseViewController.swift */; };
+		42C0C0772C2A6C2F006FA989 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C0762C2A6C2F006FA989 /* BaseView.swift */; };
+		42C0C0792C2A6C62006FA989 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C0782C2A6C62006FA989 /* BaseCollectionViewCell.swift */; };
+		42C0C07B2C2A6C8C006FA989 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C07A2C2A6C8C006FA989 /* BaseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +53,10 @@
 		42C0C06A2C29C6AF006FA989 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		42C0C0702C29CA06006FA989 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		42C0C0722C29CE11006FA989 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		42C0C0742C2A6BF0006FA989 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		42C0C0762C2A6C2F006FA989 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		42C0C0782C2A6C62006FA989 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		42C0C07A2C2A6C8C006FA989 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +161,10 @@
 		42C0C03F2C29AAD9006FA989 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				42C0C0742C2A6BF0006FA989 /* BaseViewController.swift */,
+				42C0C0762C2A6C2F006FA989 /* BaseView.swift */,
+				42C0C0782C2A6C62006FA989 /* BaseCollectionViewCell.swift */,
+				42C0C07A2C2A6C8C006FA989 /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -287,16 +299,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42C0C07B2C2A6C8C006FA989 /* BaseTableViewCell.swift in Sources */,
+				42C0C0752C2A6BF0006FA989 /* BaseViewController.swift in Sources */,
 				42C0C0732C29CE12006FA989 /* NetworkManager.swift in Sources */,
 				42C0C0622C29B9B6006FA989 /* CWRouter.swift in Sources */,
 				42C0C0642C29BB9C006FA989 /* Parameters.swift in Sources */,
 				42C0C0292C299EE9006FA989 /* MainViewController.swift in Sources */,
+				42C0C0792C2A6C62006FA989 /* BaseCollectionViewCell.swift in Sources */,
 				42C0C0252C299EE9006FA989 /* AppDelegate.swift in Sources */,
 				42C0C0692C29C091006FA989 /* Weather.swift in Sources */,
 				42C0C0602C29B82D006FA989 /* Router.swift in Sources */,
 				42C0C06B2C29C6AF006FA989 /* City.swift in Sources */,
 				42C0C05D2C29B686006FA989 /* APIKey.swift in Sources */,
 				42C0C0712C29CA06006FA989 /* NetworkError.swift in Sources */,
+				42C0C0772C2A6C2F006FA989 /* BaseView.swift in Sources */,
 				42C0C0272C299EE9006FA989 /* SceneDelegate.swift in Sources */,
 				42C0C0672C29C071006FA989 /* WeatherForecast.swift in Sources */,
 			);
