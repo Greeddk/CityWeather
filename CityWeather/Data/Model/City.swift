@@ -10,6 +10,11 @@ import Foundation
 struct City: Decodable {
     let id: Int
     let name: String
-    let lat: Double
+    let country: String
+    let coord: Coordinate
+}
+
+struct Coordinate: Hashable, Decodable {
     let lon: Double
+    let lat: Double
 }
