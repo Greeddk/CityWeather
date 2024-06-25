@@ -20,7 +20,7 @@ extension Router {
     
     func asURLRequest() throws -> URLRequest {
         let url = try baseURL.asURL()
-        var urlRequest = try URLRequest(url: url.appendingPathComponent(path), method: method)
+        let urlRequest = try URLRequest(url: url.appendingPathComponent(path), method: method)
         return try URLEncoding.default.encode(urlRequest, with: parameters)
     }
 }
