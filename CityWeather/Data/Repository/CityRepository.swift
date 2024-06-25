@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import RxSwift
 
 final class CityRepository {
     
     private var cities: [City] = []
+    private let list = BehaviorSubject<[City]>(value: [])
     
     init() {
-        
+        loadCities()
     }
     
     private func loadCities() {
@@ -24,17 +26,25 @@ final class CityRepository {
         do {
             let data = try Data(contentsOf: url)
             cities = try JsonManager.shared.decode(type: [City].self, data: data)
+            list.onNext(cities)
         } catch {
             print("디코딩 에러: \(error)")
         }
     }
     
-    func getList() -> [City] {
-        return cities
+    func getList() -> Observable<[City]> {
+        return list.asObservable()
     }
     
-    func getCity(name: String) -> City? {
-        return cities.first { $0.name == name }
+    func filterCity(_ query: String) -> Observable<[City]> {
+        return list.map { cities in
+            if query.isEmpty {
+                return cities
+            } else {
+                return cities.filter { $0.name.lowercased().contains(query) }
+            }
+        }
     }
     
 }
+
