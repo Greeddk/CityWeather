@@ -32,6 +32,9 @@
 		42C0C0772C2A6C2F006FA989 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C0762C2A6C2F006FA989 /* BaseView.swift */; };
 		42C0C0792C2A6C62006FA989 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C0782C2A6C62006FA989 /* BaseCollectionViewCell.swift */; };
 		42C0C07B2C2A6C8C006FA989 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C07A2C2A6C8C006FA989 /* BaseTableViewCell.swift */; };
+		42C0C07D2C2A6E70006FA989 /* SearchCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C07C2C2A6E70006FA989 /* SearchCityViewController.swift */; };
+		42C0C0812C2A76E7006FA989 /* SearchCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C0802C2A76E7006FA989 /* SearchCityView.swift */; };
+		42C0C0852C2A7AC2006FA989 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C0842C2A7AC2006FA989 /* UIView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,9 @@
 		42C0C0762C2A6C2F006FA989 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		42C0C0782C2A6C62006FA989 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		42C0C07A2C2A6C8C006FA989 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		42C0C07C2C2A6E70006FA989 /* SearchCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityViewController.swift; sourceTree = "<group>"; };
+		42C0C0802C2A76E7006FA989 /* SearchCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityView.swift; sourceTree = "<group>"; };
+		42C0C0842C2A7AC2006FA989 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +104,7 @@
 				42C0C0382C29A946006FA989 /* App */,
 				42C0C0392C29A94B006FA989 /* Data */,
 				42C0C03A2C29A94F006FA989 /* Presentation */,
-				42C0C03B2C29A961006FA989 /* Resource */,
+				42C0C0822C2A7AA1006FA989 /* Utility */,
 			);
 			path = CityWeather;
 			sourceTree = "<group>";
@@ -145,7 +151,8 @@
 		42C0C03D2C29AA69006FA989 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				42C0C0282C299EE9006FA989 /* MainViewController.swift */,
+				42C0C07F2C2A76D3006FA989 /* MainView */,
+				42C0C07E2C2A76CA006FA989 /* SearchCityView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +220,40 @@
 				42C0C06A2C29C6AF006FA989 /* City.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		42C0C07E2C2A76CA006FA989 /* SearchCityView */ = {
+			isa = PBXGroup;
+			children = (
+				42C0C07C2C2A6E70006FA989 /* SearchCityViewController.swift */,
+				42C0C0802C2A76E7006FA989 /* SearchCityView.swift */,
+			);
+			path = SearchCityView;
+			sourceTree = "<group>";
+		};
+		42C0C07F2C2A76D3006FA989 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				42C0C0282C299EE9006FA989 /* MainViewController.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		42C0C0822C2A7AA1006FA989 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				42C0C0832C2A7AAF006FA989 /* Extension */,
+				42C0C03B2C29A961006FA989 /* Resource */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		42C0C0832C2A7AAF006FA989 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				42C0C0842C2A7AC2006FA989 /* UIView+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,14 +345,17 @@
 				42C0C0732C29CE12006FA989 /* NetworkManager.swift in Sources */,
 				42C0C0622C29B9B6006FA989 /* CWRouter.swift in Sources */,
 				42C0C0642C29BB9C006FA989 /* Parameters.swift in Sources */,
+				42C0C0812C2A76E7006FA989 /* SearchCityView.swift in Sources */,
 				42C0C0292C299EE9006FA989 /* MainViewController.swift in Sources */,
 				42C0C0792C2A6C62006FA989 /* BaseCollectionViewCell.swift in Sources */,
 				42C0C0252C299EE9006FA989 /* AppDelegate.swift in Sources */,
+				42C0C07D2C2A6E70006FA989 /* SearchCityViewController.swift in Sources */,
 				42C0C0692C29C091006FA989 /* Weather.swift in Sources */,
 				42C0C0602C29B82D006FA989 /* Router.swift in Sources */,
 				42C0C06B2C29C6AF006FA989 /* City.swift in Sources */,
 				42C0C05D2C29B686006FA989 /* APIKey.swift in Sources */,
 				42C0C0712C29CA06006FA989 /* NetworkError.swift in Sources */,
+				42C0C0852C2A7AC2006FA989 /* UIView+.swift in Sources */,
 				42C0C0772C2A6C2F006FA989 /* BaseView.swift in Sources */,
 				42C0C0272C299EE9006FA989 /* SceneDelegate.swift in Sources */,
 				42C0C0672C29C071006FA989 /* WeatherForecast.swift in Sources */,
