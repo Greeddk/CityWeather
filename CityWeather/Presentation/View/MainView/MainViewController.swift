@@ -22,11 +22,6 @@ final class MainViewController: BaseViewController, ViewControllerProtocol {
     override func loadView() {
         self.view = mainView
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-    }
 
     override func bind() {
         let input = MainViewModel.Input(
@@ -71,7 +66,7 @@ final class MainViewController: BaseViewController, ViewControllerProtocol {
                 let selectedCity = owner.viewModel.selectedCity
                 let searchVM = SearchCityViewModel(cityRepository: CityRepository(), selectedCity: selectedCity)
                 let searchVC = SearchCityViewController(viewModel: searchVM)
-                owner.navigationController?.pushViewController(searchVC, animated: true)
+                owner.present(UINavigationController(rootViewController: searchVC), animated: true)
             }
             .disposed(by: disposeBag)
         

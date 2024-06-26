@@ -47,11 +47,13 @@ final class SearchCityViewController: BaseViewController, ViewControllerProtocol
                 }
                 .disposed(by: disposeBag)
         
-        mainView.tableView.rx.modelSelected(City.self)
-            .bind(with: self) { owner, city in
-                owner.navigationController?.popViewController(animated: true)
+        output.dismissView
+            .drive(with: self) { owner, _ in
+                owner.searchController.dismiss(animated: true)
+                owner.dismiss(animated: true)
             }
             .disposed(by: disposeBag)
+    
     }
     
 }

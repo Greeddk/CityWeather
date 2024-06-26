@@ -29,12 +29,14 @@ final class SearchCityViewModel: ViewModelProtocol {
     struct Output {
         let filteredList: Driver<[City]>
         let errorMessage: Driver<String>
+        let dismissView: Driver<Void>
     }
     
     func transform(input: Input) -> Output {
         
         let filteredList = BehaviorRelay<[City]>(value: [])
         let errorMessage = PublishRelay<String>()
+        let dismissView = PublishRelay<Void>()
         
         input.viewDidLoad
             .withUnretained(self)
@@ -55,12 +57,14 @@ final class SearchCityViewModel: ViewModelProtocol {
         input.citySelected
             .bind(with: self) { owner, city in
                 owner.selectedCity.accept(city)
+                dismissView.accept(())
             }
             .disposed(by: disposeBag)
         
         return Output(
             filteredList: filteredList.asDriver(onErrorJustReturn: []),
-            errorMessage: errorMessage.asDriver(onErrorJustReturn: "")
+            errorMessage: errorMessage.asDriver(onErrorJustReturn: ""), 
+            dismissView: dismissView.asDriver(onErrorJustReturn: ())
         )
     }
     
