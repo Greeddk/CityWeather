@@ -15,6 +15,16 @@ struct Weather: Decodable {
     let clouds: Clouds
     let name: String?
     let dt_txt: String
+    
+    static let empty = Weather(
+        weather: [],
+        main: Temperature(temp: 0.0, feels_like: 0.0, humidity: 0, temp_min: 0.0, temp_max: 0.0),
+        visibility: 0,
+        wind: Wind(speed: 0.0, deg: 0),
+        clouds: Clouds(all: 0),
+        name: nil,
+        dt_txt: ""
+    )
 }
 
 struct WeatherStatus: Decodable {
@@ -33,24 +43,10 @@ struct Temperature: Decodable {
     
     var roundedTemp: String {
         let celsius = temp - 273.15
-        let result = round(celsius)
-        return String(format: "%.0f", result) + "°"
+        let result = Int(round(celsius))
+        return String(result) + "°"
     }
-    
-    var celsiusTemperature: String {
-        let result = String(format: "%.1f", temp - 273.15 ) + "°"
-        return result
-    }
-    
-    var minTemp: String {
-        let result = "최저 " + String(format: "%.1f", temp_min - 273.15 ) + "°"
-        return result
-    }
-    
-    var maxTemp: String {
-        let result = "최고 " + String(format: "%.1f", temp_max - 273.15 ) + "°"
-        return result
-    }
+
 }
 
 struct Wind: Decodable {

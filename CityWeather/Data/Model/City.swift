@@ -12,6 +12,7 @@ struct City: Decodable {
     let name: String
     let country: String
     let coord: Coordinate
+    let timezone: Int?
 }
 
 struct Coordinate: Hashable, Decodable {
