@@ -19,7 +19,7 @@ final class SearchCityViewModel: ViewModelProtocol {
     var disposeBag = DisposeBag()
     private let repository: CityRepository
     private let list = BehaviorRelay<[City]>(value: [])
-    let selectedCity: BehaviorRelay<City>
+    private let selectedCity: BehaviorRelay<City>
     
     struct Input {
         let viewDidLoad = PublishRelay<Void>()
@@ -42,11 +42,10 @@ final class SearchCityViewModel: ViewModelProtocol {
             .flatMap { owner, _ in
                 return owner.repository.getList()
             }
-            .bind(to: list)
+            .bind(to: filteredList)
             .disposed(by: disposeBag)
         
         input.query
-            .distinctUntilChanged()
             .withUnretained(self)
             .flatMap { owner, query in
                 return owner.repository.filterCity(query)

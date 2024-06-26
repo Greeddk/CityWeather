@@ -12,7 +12,7 @@ import RxCocoa
 final class MainViewModel: ViewModelProtocol {
     
     var disposeBag = DisposeBag()
-    let networkManager = NetworkManager()
+    private let networkManager = NetworkManager()
     
     let selectedCity = BehaviorRelay<City>(value: City(id: 1839726, name: "Asan", country: "KR", coord: Coordinate(lon: 127.004173, lat: 36.783611), timezone: 32400))
     
@@ -49,7 +49,6 @@ final class MainViewModel: ViewModelProtocol {
         let presentSearchView = PublishRelay<Void>()
         
         input.fetchForecast
-            .debug()
             .withUnretained(self)
             .flatMapLatest { owner, _ in
                 owner.networkManager.callRequest(router: CWRouter.forecast5(city: owner.selectedCity.value.name), of: WeatherForecast.self)

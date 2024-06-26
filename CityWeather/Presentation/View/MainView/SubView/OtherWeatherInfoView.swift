@@ -10,15 +10,15 @@ import SnapKit
 
 final class OtherWeatherInfoView: BaseView {
 
-    let humidityBackView = CardView()
-    let cloudBackView = CardView()
-    let windBackView = CardView()
-    let humidityTitle = UILabel()
-    let cloudTitle = UILabel()
-    let windTitle = UILabel()
-    let humidityValue = UILabel()
-    let cloudValue = UILabel()
-    let windValue = UILabel()
+    private let humidityBackView = CardView()
+    private let cloudBackView = CardView()
+    private let windBackView = CardView()
+    private let humidityTitle = UILabel()
+    private let cloudTitle = UILabel()
+    private let windTitle = UILabel()
+    private let humidityValue = UILabel()
+    private let cloudValue = UILabel()
+    private let windValue = UILabel()
     
     override func setHierarchy() {
         self.addSubviews([humidityBackView, windBackView, cloudBackView])

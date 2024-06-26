@@ -11,6 +11,7 @@ final class SearchCityViewController: BaseViewController, ViewControllerProtocol
     
     private let mainView = SearchCityView()
     let viewModel: SearchCityViewModel
+    private let searchController = UISearchController()
     
     init(viewModel: SearchCityViewModel) {
         self.viewModel = viewModel
@@ -26,13 +27,11 @@ final class SearchCityViewController: BaseViewController, ViewControllerProtocol
         navigationController?.navigationBar.isHidden = false
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.title = "도시 검색"
+        searchController.searchBar.searchTextField.autocapitalizationType = .none
+        self.navigationItem.searchController = searchController
     }
     
     override func bind() {
-        let searchController = UISearchController()
-        searchController.searchBar.searchTextField.autocapitalizationType = .none
-        self.navigationItem.searchController = searchController
-        
         let input = SearchCityViewModel.Input(
             query: searchController.searchBar.rx.text.orEmpty.asObservable(),
             citySelected: mainView.tableView.rx.modelSelected(City.self).asObservable())

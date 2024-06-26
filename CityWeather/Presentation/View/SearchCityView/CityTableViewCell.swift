@@ -10,8 +10,8 @@ import SnapKit
 
 final class CityTableViewCell: BaseTableViewCell {
 
-    let city = UILabel()
-    let nation = UILabel()
+    private let city = UILabel()
+    private let nation = UILabel()
     
     override func setHierarchy() {
         contentView.addSubviews([city, nation])
