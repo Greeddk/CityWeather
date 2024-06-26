@@ -82,6 +82,12 @@ final class MainViewController: BaseViewController, ViewControllerProtocol {
             }
             .disposed(by: disposeBag)
         
+        output.errorMessage
+            .drive(with: self) { owner, message in
+                owner.showAlert(message: message)
+            }
+            .disposed(by: disposeBag)
+        
     }
 
 }

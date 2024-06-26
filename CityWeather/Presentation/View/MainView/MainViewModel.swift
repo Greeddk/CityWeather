@@ -51,8 +51,12 @@ final class MainViewModel: ViewModelProtocol {
         input.fetchForecast
             .debug()
             .withUnretained(self)
-            .flatMap { owner, _ in
+            .flatMapLatest { owner, _ in
                 owner.networkManager.callRequest(router: CWRouter.forecast5(city: owner.selectedCity.value.name), of: WeatherForecast.self)
+                    .catch { error in
+                        errorMessage.accept((error as? NetworkError)?.description ?? "알 수 없는 에러입니다.")
+                        return Single.just(WeatherForecast(list: [], city: City(id: 0, name: "", country: "", coord: Coordinate(lon: 0, lat: 0), timezone: 0)))
+                    }
             }
             .do(onNext: { forecast in
                 DateManager.shared.setTimeZone(secondsFromGMT: forecast.city.timezone ?? 32400)
