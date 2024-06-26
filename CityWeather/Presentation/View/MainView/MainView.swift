@@ -128,5 +128,12 @@ final class MainView: BaseView {
     func setCityLabel(_ item: City) {
         cityLabel.text = item.name
     }
+    
+    func scrollToLeft() {
+        if hourlyView.collectionView.numberOfItems(inSection: 0) > 0 {
+            let firstIndexPath = IndexPath(item: 0, section: 0)
+            hourlyView.collectionView.scrollToItem(at: firstIndexPath, at: .left, animated: false)
+        }
+    }
 
 }

@@ -39,6 +39,7 @@ final class MainViewController: BaseViewController, ViewControllerProtocol {
             .drive(with: self) { owner, city in
                 owner.mainView.setCityLabel(city)
                 owner.mainView.mapView.setPosition(lat: city.coord.lat, lon: city.coord.lon)
+                owner.mainView.scrollToLeft()
                 input.fetchForecast.accept(())
             }
             .disposed(by: disposeBag)
