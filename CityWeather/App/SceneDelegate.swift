@@ -10,12 +10,28 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var errorWindow: UIWindow?
+    
+    var networkMonitor = NetworkMonitorManager()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        networkMonitor.startMonitoring { [weak self] connetionStatus in
+            switch connetionStatus {
+            case .satisfied:
+                self?.removeNetworkErrorWindow()
+            case .unsatisfied:
+                self?.loadNetworkErrorWindow(on: scene)
+            case .requiresConnection:
+                print("requiresConnection")
+            @unknown default:
+                break
+            }
+        }
+        
         guard let scene = (scene as? UIWindowScene) else { return }
         
         let viewModel = MainViewModel()
@@ -57,3 +73,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate {
+    
+    private func loadNetworkErrorWindow(on scene: UIScene) {
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            window.windowLevel = .statusBar
+            window.makeKeyAndVisible()
+            
+            let networkErrorView = NetworkErrorView(frame: window.bounds)
+            window.addSubview(networkErrorView)
+            self.errorWindow = window
+        }
+    }
+    
+    private func removeNetworkErrorWindow() {
+        errorWindow?.resignKey()
+        errorWindow?.isHidden = true
+        errorWindow = nil
+    }
+}

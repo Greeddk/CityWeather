@@ -11,6 +11,8 @@
 		423925F42C2BEB3600B8CC24 /* CWMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423925F32C2BEB3600B8CC24 /* CWMapView.swift */; };
 		423925F62C2BEB5900B8CC24 /* OtherWeatherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423925F52C2BEB5900B8CC24 /* OtherWeatherInfoView.swift */; };
 		423925F82C2C0FE400B8CC24 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423925F72C2C0FE400B8CC24 /* UIViewController+.swift */; };
+		423925FA2C2C29F100B8CC24 /* NetworkMonitorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423925F92C2C29F100B8CC24 /* NetworkMonitorManager.swift */; };
+		423925FC2C2C2A4400B8CC24 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423925FB2C2C2A4400B8CC24 /* NetworkErrorView.swift */; };
 		42C0C0252C299EE9006FA989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C0242C299EE9006FA989 /* AppDelegate.swift */; };
 		42C0C0272C299EE9006FA989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C0262C299EE9006FA989 /* SceneDelegate.swift */; };
 		42C0C0292C299EE9006FA989 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0C0282C299EE9006FA989 /* MainViewController.swift */; };
@@ -62,6 +64,8 @@
 		423925F32C2BEB3600B8CC24 /* CWMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWMapView.swift; sourceTree = "<group>"; };
 		423925F52C2BEB5900B8CC24 /* OtherWeatherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherWeatherInfoView.swift; sourceTree = "<group>"; };
 		423925F72C2C0FE400B8CC24 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		423925F92C2C29F100B8CC24 /* NetworkMonitorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorManager.swift; sourceTree = "<group>"; };
+		423925FB2C2C2A4400B8CC24 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		42C0C0212C299EE9006FA989 /* CityWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C0C0242C299EE9006FA989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42C0C0262C299EE9006FA989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -312,6 +316,7 @@
 			children = (
 				42C0C0892C2A80A4006FA989 /* JsonManager.swift */,
 				42C0C0AF2C2AD690006FA989 /* DateManager.swift */,
+				423925F92C2C29F100B8CC24 /* NetworkMonitorManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -352,6 +357,7 @@
 				42C0C0A72C2AAEB4006FA989 /* CardView.swift */,
 				42C0C0A92C2AC191006FA989 /* Divider.swift */,
 				42C0C0AD2C2ACE58006FA989 /* SearchButton.swift */,
+				423925FB2C2C2A4400B8CC24 /* NetworkErrorView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -459,6 +465,7 @@
 				42C0C0A52C2AAB76006FA989 /* DailyForecastView.swift in Sources */,
 				42C0C08A2C2A80A4006FA989 /* JsonManager.swift in Sources */,
 				423925F62C2BEB5900B8CC24 /* OtherWeatherInfoView.swift in Sources */,
+				423925FA2C2C29F100B8CC24 /* NetworkMonitorManager.swift in Sources */,
 				42C0C0252C299EE9006FA989 /* AppDelegate.swift in Sources */,
 				42C0C07D2C2A6E70006FA989 /* SearchCityViewController.swift in Sources */,
 				42C0C0A12C2AA921006FA989 /* HourlyForecastCollectionViewCell.swift in Sources */,
@@ -474,6 +481,7 @@
 				42C0C0852C2A7AC2006FA989 /* UIView+.swift in Sources */,
 				42C0C0772C2A6C2F006FA989 /* BaseView.swift in Sources */,
 				42C0C0A32C2AAAF0006FA989 /* DailyForecastTableViewCell.swift in Sources */,
+				423925FC2C2C2A4400B8CC24 /* NetworkErrorView.swift in Sources */,
 				42C0C08C2C2A812D006FA989 /* SearchCityViewModel.swift in Sources */,
 				423925F82C2C0FE400B8CC24 /* UIViewController+.swift in Sources */,
 				42C0C0272C299EE9006FA989 /* SceneDelegate.swift in Sources */,
