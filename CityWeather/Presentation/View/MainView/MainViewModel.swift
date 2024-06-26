@@ -26,6 +26,9 @@ final class MainViewModel: ViewModelProtocol {
         let currentWeather: Driver<DailyWeather>
         let hourlyWeather: Driver<[Weather]>
         let dailyWeather: Driver<[DailyWeather]>
+        let averageWind: Driver<Double>
+        let averageClouds: Driver<Int>
+        let averageHumidity: Driver<Int>
         let errorMessage: Driver<String>
         let presentSearchView: Driver<Void>
     }
@@ -37,6 +40,10 @@ final class MainViewModel: ViewModelProtocol {
         let currentWeather = PublishRelay<DailyWeather>()
         let hourlyWeather = PublishRelay<[Weather]>()
         let dailyWeather = PublishRelay<[DailyWeather]>()
+        
+        let averageWind = PublishRelay<Double>()
+        let averageClouds = PublishRelay<Int>()
+        let averageHumidity = PublishRelay<Int>()
         
         let errorMessage = PublishRelay<String>()
         let presentSearchView = PublishRelay<Void>()
@@ -110,6 +117,27 @@ final class MainViewModel: ViewModelProtocol {
             .bind(to: dailyWeather)
             .disposed(by: disposeBag)
         
+        fetchedWeatherInfo
+            .map { weathers -> (wind: Double, cloud: Int, humidity: Int) in
+                let todayWeathers = weathers.filter { DateManager.shared.isToday($0.dt_txt) }
+                let totalWindSpeed = todayWeathers.map { $0.wind.speed }.reduce(0, +)
+                let totalClouds = todayWeathers.map { $0.clouds.all }.reduce(0, +)
+                let totalHumidity = todayWeathers.map { $0.main.humidity }.reduce(0, +)
+                let count = Double(todayWeathers.count)
+                
+                let avgWind = count > 0 ? totalWindSpeed / count : 0
+                let avgClouds = count > 0 ? totalClouds / Int(count) : 0
+                let avgHumidity = count > 0 ? totalHumidity / Int(count) : 0
+                
+                return (avgWind, avgClouds, avgHumidity)
+            }
+            .bind(onNext: { value in
+                averageWind.accept(value.wind)
+                averageClouds.accept(value.cloud)
+                averageHumidity.accept(value.humidity)
+            })
+            .disposed(by: disposeBag)
+        
         input.searchBarTapped
             .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .bind(to: presentSearchView)
@@ -120,6 +148,9 @@ final class MainViewModel: ViewModelProtocol {
             currentWeather: currentWeather.asDriver(onErrorJustReturn: DailyWeather(date: "", maxTemp: 0, minTemp: 0, icon: "", main: nil, description: nil)),
             hourlyWeather: hourlyWeather.asDriver(onErrorJustReturn: []),
             dailyWeather: dailyWeather.asDriver(onErrorJustReturn: []),
+            averageWind: averageWind.asDriver(onErrorJustReturn: 0),
+            averageClouds: averageClouds.asDriver(onErrorJustReturn: 0),
+            averageHumidity: averageHumidity.asDriver(onErrorJustReturn: 0),
             errorMessage: errorMessage.asDriver(onErrorJustReturn: ""),
             presentSearchView: presentSearchView.asDriver(onErrorJustReturn: ())
         )

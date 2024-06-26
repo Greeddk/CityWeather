@@ -73,6 +73,14 @@ final class MainViewController: BaseViewController, ViewControllerProtocol {
                 owner.navigationController?.pushViewController(searchVC, animated: true)
             }
             .disposed(by: disposeBag)
+        
+        Driver.combineLatest(output.averageHumidity, output.averageClouds, output.averageWind)
+            .drive(with: self) { owner, combined in
+                let (humidity, clouds, wind) = combined
+                owner.mainView.otherInfoView.setUI(humidity: humidity, cloud: clouds, wind: wind)
+            }
+            .disposed(by: disposeBag)
+        
     }
 
 }
