@@ -15,10 +15,9 @@ final class SearchCityViewModel: ViewModelProtocol {
         self.repository = cityRepository
         self.selectedCity = selectedCity
     }
-    
+
     var disposeBag = DisposeBag()
     private let repository: CityRepository
-    private let list = BehaviorRelay<[City]>(value: [])
     private let selectedCity: BehaviorRelay<City>
     
     struct Input {
@@ -34,7 +33,7 @@ final class SearchCityViewModel: ViewModelProtocol {
     
     func transform(input: Input) -> Output {
         
-        let filteredList = BehaviorRelay<[City]>(value: list.value)
+        let filteredList = BehaviorRelay<[City]>(value: [])
         let errorMessage = PublishRelay<String>()
         
         input.viewDidLoad
