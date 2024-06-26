@@ -38,6 +38,7 @@ final class MainViewController: BaseViewController, ViewControllerProtocol {
         output.selectedCity
             .drive(with: self) { owner, city in
                 owner.mainView.setCityLabel(city)
+                owner.mainView.mapView.setPosition(lat: city.coord.lat, lon: city.coord.lon)
                 input.fetchForecast.accept(())
             }
             .disposed(by: disposeBag)

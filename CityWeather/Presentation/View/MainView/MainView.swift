@@ -20,11 +20,12 @@ final class MainView: BaseView {
     private let maxMinTempLabel = UILabel()
     let hourlyView = HourlyForecastView()
     let dailyView = DailyForecastView()
+    let mapView = CWMapView()
     
     override func setHierarchy() {
         self.addSubviews([backImageView, scrollView])
         scrollView.addSubview(contentView)
-        contentView.addSubviews([searchBar, cityLabel, temperatureLabel, descriptionLabel, maxMinTempLabel, hourlyView, dailyView])
+        contentView.addSubviews([searchBar, cityLabel, temperatureLabel, descriptionLabel, maxMinTempLabel, hourlyView, dailyView, mapView])
     }
     
     override func setupLayout() {
@@ -42,7 +43,7 @@ final class MainView: BaseView {
         }
         
         searchBar.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(50)
+            make.top.equalToSuperview().offset(20)
             make.horizontalEdges.equalToSuperview().inset(10)
             make.height.equalTo(44)
         }
@@ -77,6 +78,12 @@ final class MainView: BaseView {
             make.top.equalTo(hourlyView.snp.bottom).offset(20)
             make.horizontalEdges.equalToSuperview().inset(10)
             make.height.equalTo(260)
+        }
+        
+        mapView.snp.makeConstraints { make in
+            make.top.equalTo(dailyView.snp.bottom).offset(20)
+            make.horizontalEdges.equalToSuperview().inset(10)
+            make.height.equalTo(350)
             make.bottom.equalToSuperview()
         }
         
