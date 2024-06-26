@@ -24,13 +24,14 @@ final class SearchCityViewController: BaseViewController, ViewControllerProtocol
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.title = "도시 검색"
     }
     
     override func bind() {
         let searchController = UISearchController()
         searchController.searchBar.searchTextField.autocapitalizationType = .none
         self.navigationItem.searchController = searchController
-        self.navigationItem.title = "도시 검색"
         
         let input = SearchCityViewModel.Input(
             query: searchController.searchBar.rx.text.orEmpty.asObservable(),
