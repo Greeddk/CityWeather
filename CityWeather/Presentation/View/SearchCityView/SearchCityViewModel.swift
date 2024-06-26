@@ -11,17 +11,20 @@ import RxCocoa
 
 final class SearchCityViewModel: ViewModelProtocol {
     
-    init(cityRepository: CityRepository) {
+    init(cityRepository: CityRepository, selectedCity: BehaviorRelay<City>) {
         self.repository = cityRepository
+        self.selectedCity = selectedCity
     }
     
     var disposeBag = DisposeBag()
     private let repository: CityRepository
     private let list = BehaviorRelay<[City]>(value: [])
+    let selectedCity: BehaviorRelay<City>
     
     struct Input {
         let viewDidLoad = PublishRelay<Void>()
         let query: Observable<String>
+        let citySelected: Observable<City>
     }
     
     struct Output {
@@ -43,11 +46,18 @@ final class SearchCityViewModel: ViewModelProtocol {
             .disposed(by: disposeBag)
         
         input.query
+            .distinctUntilChanged()
             .withUnretained(self)
             .flatMap { owner, query in
                 return owner.repository.filterCity(query)
             }
             .bind(to: filteredList)
+            .disposed(by: disposeBag)
+        
+        input.citySelected
+            .bind(with: self) { owner, city in
+                owner.selectedCity.accept(city)
+            }
             .disposed(by: disposeBag)
         
         return Output(

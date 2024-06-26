@@ -9,7 +9,7 @@ import UIKit
 
 final class SearchCityViewController: BaseViewController, ViewControllerProtocol {
     
-    let mainView = SearchCityView()
+    private let mainView = SearchCityView()
     let viewModel: SearchCityViewModel
     
     init(viewModel: SearchCityViewModel) {
@@ -21,13 +21,20 @@ final class SearchCityViewController: BaseViewController, ViewControllerProtocol
         self.view = mainView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     override func bind() {
         let searchController = UISearchController()
         searchController.searchBar.searchTextField.autocapitalizationType = .none
         self.navigationItem.searchController = searchController
         self.navigationItem.title = "도시 검색"
         
-        let input = SearchCityViewModel.Input(query: searchController.searchBar.rx.text.orEmpty.asObservable())
+        let input = SearchCityViewModel.Input(
+            query: searchController.searchBar.rx.text.orEmpty.asObservable(),
+            citySelected: mainView.tableView.rx.modelSelected(City.self).asObservable())
         let output = viewModel.transform(input: input)
         
         input.viewDidLoad.accept(())
@@ -39,6 +46,12 @@ final class SearchCityViewController: BaseViewController, ViewControllerProtocol
                     cell.configureCell(item)
                 }
                 .disposed(by: disposeBag)
+        
+        mainView.tableView.rx.modelSelected(City.self)
+            .bind(with: self) { owner, city in
+                owner.navigationController?.popViewController(animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
 }
