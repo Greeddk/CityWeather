@@ -19,7 +19,7 @@
 ### 기술 스택
 
 - UIKit / MVVM
-- RxSwift / RxCoCoa
+- RxSwift / RxCocoa
 - CodeBaseUI / SnapKit
 - Alamofire
 
